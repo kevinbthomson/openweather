@@ -2,29 +2,36 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Open Weather app</title>
+    <title>Open Weather</title>
 
     <link rel="stylesheet" href="style.css">
   </head>
 <body>
+
+  <div class="container">
+    <h1>Searching the weather is fun</h1>
+    
+    <form id="weather-form">
+      <fieldset>
+        <legend>Search Weather</legend>
+
+        <div class="form-group">
+          <label for="search">City or Zip:</label>
+          <input type="text" class="search" id="search">
+          <button type="submit" class="btn-search">Search</button>
+        </div>
+      </fieldset>
+
+      <div class="message alert-message" style="display: none;">Please type in a U.S. City Name</div>
+
+      <div class="message current-temp-message" style="display: none;"></div>
+    </form>
+
+    <div id="chart"></div>
   
-  <form id="weather-form">    
-    <fieldset>
-      <legend>Search Weather</legend>
-
-      <div class="form-group">
-        <label for="search">City:</label>
-        <input type="text" class="search" id="search" placeholder="City Name">
-        <button type="submit" class="btn-search">Search</button>
-      </div>
-    </fieldset>
-
-    <div class="message alert-message" style="display: none;">Please type in a U.S. City Name</div>
-
-    <div class="message current-temp-message" style="display: none;"></div>
-  </form>
-
+  </div><!-- /.container -->
   
-  <script src="main.js"></script>
+  <!-- webpack dev server automatically includes <script> -->
+  <!-- <script src="main.js"></script> -->
 </body>
 </html>

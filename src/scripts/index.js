@@ -1,25 +1,29 @@
-import $ from 'jquery';
 
+import forecastChart from './modules/forecast-chart';
 
 const endpoint = "http://api.openweathermap.org/data/2.5/forecast?appid=5a47c7954f010f644d95d0ce40de4fa6&units=imperial";
 
 const searchInput = document.querySelector('.search');
 const searchForm = document.querySelector('#weather-form');
+const searchBtn = document.querySelector('.btn-search');
 const currentTemp = document.querySelector('.current-temp-message');
 const alert = document.querySelector('.alert-message');
 
 let cityMessage;
+
 
 function buildForecast(forecast) {
   const tempratures = forecast.list.map(day => {
     return day.main.temp;
   });
 
-  console.log(tempratures);
+  forecastChart(tempratures);
 }
+
 
 function returnWeather(data) {
   const forecast = data;
+
 
   if (forecast.cod === "404") {
     alert.style.display = 'block'
@@ -27,13 +31,14 @@ function returnWeather(data) {
   } else {
     alert.style.display = 'none';
     
+    const weatherDescription = forecast.list[0].weather[0].description;
     const temprature = parseFloat(forecast.list[0].main.temp).toFixed();
     const city = forecast.city.name;
     
-    cityMessage = ("The temprature in " + city + " is " + temprature + " Degrees Fahrenheit");
+    cityMessage = "The weather in " + city + " is <em>" + weatherDescription + "</em>, and the temperature is <strong>" + temprature + "&deg</strong>";
 
     currentTemp.style.display = 'block';
-    currentTemp.textContent = cityMessage;
+    currentTemp.innerHTML = cityMessage;
 
     buildForecast(forecast);
   }
@@ -62,5 +67,6 @@ searchInput.focus();
 
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
+  document.querySelector('#chart').innerHTML = '';
   searchWeather();
 });

@@ -1,29 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald|Roboto+Mono');
+
 * {
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
   background: #e6e6e6;
   color: #333;
 }
 
+h1 {
+  text-shadow: 0 1px 0 white;
+}
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
 form {
-  padding: 20px;
+  padding: 20px 20px 10px 20px;
+  position: relative;
   background: white;
-  border-radius: 3px;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  margin: 0 0 1em 0;
+}
+
+legend {
+  position: absolute;
+  top: -10px;
+  left: -14px;
+  transform: rotate(-8deg);
+  background: lime;
+  color: black;
+  padding: 4px 10px;
+  /* box-shadow: 0 1px 3px rgba(0,0,0,0.125); */
+  /* text-shadow: 0 1px 0 rgba(0,0,0,.5); */
 }
 
 fieldset {
   border: none;
 }
 
+.form-group {
+  position: relative;
+}
+
+#search {
+  width: 33%;
+  padding: 4px
+}
+
+.btn-search {
+  font-family: 'Roboto Mono', monospace;
+  color: white;
+  background: green;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 2px 8px;
+  position: relative;
+  top: 2px;
+}
+
 .message {
-  margin-bottom: 1em;
-  border-radius: 3px;
+  /* margin-bottom: 1em; */
+  /* border-radius: 3px; */
   color: white;
   padding: 10px;
+}
+
+.message strong {
+  text-shadow: 0 1px 0 rgba(0,0,0,0.5);
 }
 
 .alert-message {
