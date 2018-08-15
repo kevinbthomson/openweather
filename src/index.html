@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Open Weather app</title>
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+<body>
+  
+  <form id="weather-form">    
+    <fieldset>
+      <legend>Search Weather</legend>
+
+      <div class="form-group">
+        <label for="search">City:</label>
+        <input type="text" class="search" id="search" placeholder="City Name">
+        <button type="submit" class="btn-search">Search</button>
+      </div>
+    </fieldset>
+
+    <div class="message alert-message" style="display: none;">Please type in a U.S. City Name</div>
+
+    <div class="message current-temp-message" style="display: none;"></div>
+  </form>
+
+  
+  <script src="main.js"></script>
+</body>
+</html>
